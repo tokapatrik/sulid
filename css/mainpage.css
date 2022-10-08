@@ -1,0 +1,122 @@
+
+.hero{
+    background: url("/images/hero.jpg");    
+    background-size: cover;
+    height:600px;
+}
+
+.navbar{
+    background: #FFFFFF;
+    margin: auto;
+    width: 80%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.navbar-grid{
+    width:100%;
+    display: inline-grid;
+    grid-template-columns: 2fr 3fr 2fr;
+}
+.navbar-logo-div,.navbar-menu-div,.navbar-button-div{
+    display: inline-block;
+}
+
+.navbar-menu{
+    width:100%;
+    --bs-nav-link-padding-x: 20px;
+    --bs-nav-link-padding-y: 10px;
+    --bs-nav-link-color: var(--bs-link-color);
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: #6c757d;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    list-style: none;
+}
+.nav-item{
+    margin: auto;
+}
+
+
+.horizontal-center{
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.navbar-logo{
+    width: 150px;
+    height: auto;
+    padding-left: 40px;
+}
+
+.navbar-button-div{
+    text-align: center;
+}
+
+.navbar-button{
+    position: relative;
+    width: 200px;
+    border-radius: 25px;
+    font-weight: bolder;
+    background-color:#00437d;
+}
+
+.hero-box{
+    margin: auto;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.hero-box .hero-heading{
+    color:#FFFFFF;
+    font-size: 50px;
+    line-height: 60px;
+    font-family: 'Poppins' sans-serif;
+    font-weight: bolder;
+}
+
+.hero-box .hero-desc{
+    color:#FFFFFF;
+    font-size: 23px;
+    line-height: 27px;
+    padding: 20px 0;
+}
+
+.hero-box .btn{
+    margin-top: 30px;
+    background-color:#FFFFFF;
+    width: 170px;
+    height: 40px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 25px;
+    font-weight: bolder;
+}
+
+.hero-box .btn:hover{
+    background-color: #c4c4c4;
+
+}
+
+.ikon-table{
+    margin: auto;
+    margin-top: 30px;
+    table-layout: fixed;
+}
+
+.ikon-table-td{
+    width: 300px;
+    text-align: center;
+}
+
+h4{
+    margin: 20px;
+}
+
+.fa-square{
+    color:#00437d;
+}
