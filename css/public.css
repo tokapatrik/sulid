@@ -1,0 +1,82 @@
+.navbar-header{position: fixed;width: 100%;top: 0;left: 0;z-index: 99;}
+.navbar{background: #FFFFFF;margin: auto;width: 80%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+.navbar-logo,.navbar-menu,.navbar-button{display: inline-block;}
+.navbar-logo-img{margin-left: 30px;width: 150px;height: auto; padding: 0px;}
+.navbar-menu{margin: auto;}
+.nav-element{display: inline-block;width: 100px;text-align: center;}
+.navbar-button{margin-right: 30px;width: 150px;text-align: center;border-radius: 10px;font-weight: bolder;background-color:#00437d;}
+
+.hero{background: url("/images/siteImages/hero.jpg");    background-size: cover;height:600px;position: relative; z-index: 10;}
+.hero-box{margin: auto;text-align: center;padding-top: 150px;}
+.hero-box .hero-heading{color:#FFFFFF;font-size: 50px;line-height: 60px;font-family: 'Poppins' sans-serif; font-weight: bolder;}
+.hero-box .hero-desc{color:#FFFFFF;font-size: 23px;line-height: 27px;padding: 20px;}
+.hero-box .btn{margin-top: 30px;background-color:#FFFFFF;width: 170px;height: 40px;border: 1px solid black;color: black;border-radius: 10px;font-weight: bolder;}
+.hero-box .btn:hover{background-color: #c4c4c4;}
+
+.home1{
+    background: linear-gradient(177deg, #f0f0f0 5%, rgba(0, 0, 0, 0) 5%),     
+    linear-gradient(177deg, #fafafa 85%, #f0f0f0 85%);
+    width: 100%;
+    margin-top: 0;
+}
+.home2{
+    background:linear-gradient(-179deg, #f0f0f0 95%, #fafafa 93%);
+    width: 100%;
+    margin-top: 0;
+    height:600px;
+}
+.home3{
+    background:linear-gradient(179deg, #fafafa 95%, #f0f0f0 93%);
+    width: 100%;
+    margin-top: 0;
+    height:600px;
+}
+.card-holder{
+    margin: auto;
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 170px;
+}
+
+.card-icon{
+    margin-top: 25px;
+}
+
+h4{
+    padding-top: 40px;
+}
+
+.fa-square{
+    color:#00437d;
+}
+
+
+
+.flip-card {
+    display: inline-block;
+    margin: 20px;
+    margin-top: 0;
+    text-align: center;
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  .flip-card-inner {border-radius: 25px;position: relative;width: 100%;height: 100%;text-align: center;transition: transform 0.8s;transform-style: preserve-3d;}
+  .flip-card:hover .flip-card-inner {transform: rotateY(180deg);}
+  .flip-card-front, .flip-card-back {position: absolute;width: 100%;height: 100%;-webkit-backface-visibility: hidden; /* Safari */backface-visibility: hidden;}
+  
+  .flip-card-front {
+    background-color: white;
+    border: 3px solid #00437d;
+    border-radius: 25px;
+  }
+  
+  .flip-card-back {
+    background-color: white;
+    border: 3px solid #00437d;
+    border-radius: 25px;
+    padding: 60px 10px;
+    transform: rotateY(180deg);
+  }

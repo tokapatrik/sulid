@@ -14,8 +14,3 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
   });
-
-const element = document.querySelector('.hero-box .btn');
-element.addEventListener('mouseover', () => {
-    animateCSS('.hero-box .btn', 'pulse');
-});
