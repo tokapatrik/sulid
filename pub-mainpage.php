@@ -4,7 +4,7 @@ include('pub-site-top.php');
 
 
 
-<div class="hero shadow-lg">
+<div class="hero shadow">
     <div class="hero-box animate__animated animate__fadeInUp" >
         <h1 class="hero-heading h-light">Digatializáld velünk az oktatást!</h1>
         <p class="hero-desc">Elektronikus napló megoldás általános és közép iskolák részére</p>
@@ -21,7 +21,7 @@ include('pub-site-top.php');
                        <i class="fa fa-square fa-stack-2x"></i>
                        <i class="fa fa-list fa-stack-1x fa-inverse"></i>
                    </span>
-                   <h4 class="h-bold">Teljeskörű nyilvántartás</h4> 
+                   <h4 class="card-h4">Teljeskörű nyilvántartás</h4> 
                </div>
                <div class="flip-card-back">
                    <h5>Adminisztrációs rendszer, amely talmazza mindazon adatokat, amelyeket egy iskolának tárolnia kell alkalmazottairól, osztályairól, diákjairól.</h5>
@@ -35,7 +35,7 @@ include('pub-site-top.php');
                        <i class="fa fa-square fa-stack-2x"></i>
                        <i class="fa fa-book fa-stack-1x fa-inverse"></i>
                    </span>
-                   <h4 class="h-bold">Elektronikus napló</h4> 
+                   <h4 class="card-h4">Elektronikus <br> napló</h4> 
                </div>
                <div class="flip-card-back">
                    <h5>Az elektronikus ellenőrző a szülőknek és tanulóknak nyújt segítséget a tanulmányok alatti naprakész információhoz jutásban.</h5>
@@ -49,7 +49,7 @@ include('pub-site-top.php');
                        <i class="fa fa-square fa-stack-2x"></i>
                        <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
                    </span>
-                   <h4 class="h-bold">Felhő alapú <br>szoftver</h4>
+                   <h4 class="card-h4">Felhő alapú <br>szoftver</h4>
                </div>
                <div class="flip-card-back">
                    <h5>Felhő alapú online szoftver, melyet nem szükséges telepíteni és a webes alkalmazásnak köszönhetően bárhol, bármikor elérhető.</h5>
@@ -63,7 +63,7 @@ include('pub-site-top.php');
                        <i class="fa fa-square fa-stack-2x"></i>
                        <i class="fa fa-hourglass-half fa-stack-1x fa-inverse"></i>
                    </span>
-                   <h4 class="h-bold">Átlátható működés</h4> 
+                   <h4 class="card-h4">Átlátható <br>működés</h4> 
                </div>
                <div class="flip-card-back">
                    <h5>A gyors és egyszerű használatnak köszönhetően időt és engergát spórolhat a szoftver használatával.</h5>
