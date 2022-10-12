@@ -2,26 +2,8 @@
 include('pub-site-top.php');  
 ?>
 
-<div class="nav-spacer"></div>
-<div class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col hero-text">
-                <h1>Digitális oktatás <br>Mindenki részére</h1>
-                <div class="hero-h1-underline"></div>
-                <p class="h5">A Sulid.hu rendszere elektronikus napló megoldást kínál általános és közép iskolák részére. Széles funkciókínálattal segítjük az oktatásban résztvevők mindennapi munkáját.</p>
-                <p class="hero-button"><a class="btn btn-primary-outline " href="/tools/" id="swaggerToolsNewCta">Felfedezem a funkciókat</a></p>
-            </div>
-            <div class="col">
-                <img src="https://static1.smartbear.co/swagger/media/assets/images/sw_ov_intro_hero.svg">
-            </div>
-        </div>
-    </div>
-</div>
 
 
-<?php
-/*
 <div class="hero shadow">
     <div class="hero-box animate__animated animate__fadeInUp" >
         <h1 class="hero-heading h-light">Digatializáld velünk az oktatást!</h1>
@@ -98,6 +80,6 @@ include('pub-site-top.php');
 for ($i=0; $i < 10; $i++) { 
     echo '<div style="height:200px;">asdasd</div>';
 }
-*/
+
 include('pub-site-bottom.php');  
 ?>
