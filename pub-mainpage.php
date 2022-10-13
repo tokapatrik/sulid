@@ -13,7 +13,41 @@ include('pub-site-top.php');
                 <p class="hero-button"><a class="btn btn-primary-outline " href="/tools/" id="swaggerToolsNewCta">Felfedezem a funkciókat</a></p>
             </div>
             <div class="col">
-                <img src="https://static1.smartbear.co/swagger/media/assets/images/sw_ov_intro_hero.svg">
+                <img src="/images/siteImages/hero2.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cardholder">
+    <div class="container">
+        <div class="row">
+            <div class="cards col">
+                <span class="card-icon fa-stack fa-2x">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+                </span>
+                <h3>Teljeskörű nyilvántartás</h3> 
+                <h5>Adminisztrációs rendszer, amely talmazza mindazon adatokat, amelyeket egy iskolának tárolnia kell alkalmazottairól, osztályairól, diákjairól</h5>
+                <a class="btn btn-primary" href="/tools/">Bővebben</a>
+            </div>
+            <div class="cards col cards-active">
+                <span class="card-icon fa-stack fa-2x">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-book fa-stack-1x fa-inverse"></i>
+                </span>
+                <h3>Elektronikus napló</h3> 
+                <h5>Az elektronikus ellenőrző a szülőknek és tanulóknak nyújt segítséget a tanulmányok alatti naprakész információhoz jutásban</h5>
+                <a class="btn btn-primary" href="/tools/">Bővebben</a>
+            </div>
+            <div class="cards col">
+                <span class="card-icon fa-stack fa-2x">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                </span>
+                <h3>Felhő alapú szoftver</h3> 
+                <h5>Felhő alapú online szoftver, melyet nem szükséges telepíteni és a webes alkalmazásnak köszönhetően bárhol, bármikor elérhető</h5>
+                <a class="btn btn-primary" href="/tools/">Bővebben</a>
             </div>
         </div>
     </div>
@@ -67,7 +101,7 @@ include('pub-site-top.php');
                        <i class="fa fa-square fa-stack-2x"></i>
                        <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
                    </span>
-                   <h4 class="card-h4">Felhő alapú <br>szoftver</h4>
+                   <h4 class="card-h4">Felhő alapú szoftver</h4>
                </div>
                <div class="flip-card-back">
                    <h5>Felhő alapú online szoftver, melyet nem szükséges telepíteni és a webes alkalmazásnak köszönhetően bárhol, bármikor elérhető.</h5>
@@ -94,10 +128,10 @@ include('pub-site-top.php');
 <div class="home2"></div>
 <div class="home3"></div>
 <?php 
-
+*/
 for ($i=0; $i < 10; $i++) { 
     echo '<div style="height:200px;">asdasd</div>';
 }
-*/
+
 include('pub-site-bottom.php');  
 ?>
