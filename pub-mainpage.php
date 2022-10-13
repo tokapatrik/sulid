@@ -53,84 +53,30 @@ include('pub-site-top.php');
     </div>
 </div>
 
+<div class="desc">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 szoveg">
+                <h3>Kinek segít a szoftver?</h3>
+                <div class="underline"></div>
+                <p>A diákok gyorsan és egyszerűen tájékozódhatnak jegyeikről vagy tanulmányi átlagukról. Egy helyen láthatják a soron következő teendőiket, beadandó feladatik határidejét vagy a soron következő dolgozatokat. </p>
+                <p>A tanárok listába rendezve láthatják az oktatott diákjaikat, egyszerűen kereshetnek a diákok jegyei és adatai között. Szűrhetnek azok adatai, jegyei vagy tanulmányi átlag alapján.</p>
+                <p>A szülők betekintést nyerhetnek a gyerekeik iskolai életébe, a rendszer segítségével a szülők is értesítést kapnak a tanulók jegyeiről.</p>
+            </div>
+            <div class="col-5">
+                <img src="/images/siteImages/laptop.jpg">
+                <div class="desc-image"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <?php
-/*
-<div class="hero shadow">
-    <div class="hero-box animate__animated animate__fadeInUp" >
-        <h1 class="hero-heading h-light">Digatializáld velünk az oktatást!</h1>
-        <p class="hero-desc">Elektronikus napló megoldás általános és közép iskolák részére</p>
-        <a href="#" id="hero-box-button"class="btn btn-primary shadow">Bővebben</a>
-    </div>
-</div>
 
-<div class="home1">
-    <div class="card-holder">   
-       <div class="flip-card">
-           <div class="flip-card-inner">
-               <div class="flip-card-front shadow">
-                   <span class="card-icon fa-stack fa-lg fa-3x">
-                       <i class="fa fa-square fa-stack-2x"></i>
-                       <i class="fa fa-list fa-stack-1x fa-inverse"></i>
-                   </span>
-                   <h4 class="card-h4">Teljeskörű nyilvántartás</h4> 
-               </div>
-               <div class="flip-card-back">
-                   <h5>Adminisztrációs rendszer, amely talmazza mindazon adatokat, amelyeket egy iskolának tárolnia kell alkalmazottairól, osztályairól, diákjairól.</h5>
-               </div>
-           </div>
-       </div>
-       <div class="flip-card">
-           <div class="flip-card-inner">
-               <div class="flip-card-front shadow">
-                   <span class="card-icon fa-stack fa-lg fa-3x">
-                       <i class="fa fa-square fa-stack-2x"></i>
-                       <i class="fa fa-book fa-stack-1x fa-inverse"></i>
-                   </span>
-                   <h4 class="card-h4">Elektronikus <br> napló</h4> 
-               </div>
-               <div class="flip-card-back">
-                   <h5>Az elektronikus ellenőrző a szülőknek és tanulóknak nyújt segítséget a tanulmányok alatti naprakész információhoz jutásban.</h5>
-               </div>
-           </div>
-       </div>
-       <div class="flip-card">
-           <div class="flip-card-inner">
-               <div class="flip-card-front shadow">
-                   <span class="card-icon fa-stack fa-lg fa-3x">
-                       <i class="fa fa-square fa-stack-2x"></i>
-                       <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
-                   </span>
-                   <h4 class="card-h4">Felhő alapú szoftver</h4>
-               </div>
-               <div class="flip-card-back">
-                   <h5>Felhő alapú online szoftver, melyet nem szükséges telepíteni és a webes alkalmazásnak köszönhetően bárhol, bármikor elérhető.</h5>
-               </div>
-           </div>
-        </div>
-        <div class="flip-card">
-           <div class="flip-card-inner shadow">
-               <div class="flip-card-front">
-                   <span class="card-icon fa-stack fa-lg fa-3x">
-                       <i class="fa fa-square fa-stack-2x"></i>
-                       <i class="fa fa-hourglass-half fa-stack-1x fa-inverse"></i>
-                   </span>
-                   <h4 class="card-h4">Átlátható <br>működés</h4> 
-               </div>
-               <div class="flip-card-back">
-                   <h5>A gyors és egyszerű használatnak köszönhetően időt és engergát spórolhat a szoftver használatával.</h5>
-               </div>
-           </div>
-        </div>
-    </div>
-</div>
-
-<div class="home2"></div>
-<div class="home3"></div>
-<?php 
-*/
 for ($i=0; $i < 10; $i++) { 
-    echo '<div style="height:200px;">asdasd</div>';
+    echo '<div style="height:200px;"></div>';
 }
 
 include('pub-site-bottom.php');  
