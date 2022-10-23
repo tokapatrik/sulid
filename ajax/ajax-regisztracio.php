@@ -1,6 +1,5 @@
 <?php
 include_once('ajax-top.php');
-sleep(1);
 $retArr = array("retCode","retMsg","retHtml");
 if($_REQUEST["pageNumber"]==0)
 {

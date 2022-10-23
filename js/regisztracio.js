@@ -1,7 +1,3 @@
-const width = document.getElementById('regisztracio-box').clientWidth;
-const takaro = document.getElementById('loading-page');
-takaro.style.width = width +"px";
-
 $(document).ready(function () 
 {
     $("#startregisztracio").click(function() {
