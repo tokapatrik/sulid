@@ -152,8 +152,8 @@
                             </li>
                         </ul>
                         <div class="nav-buttons ms-auto">
-                            <a href="https://app.swaggerhub.com/login?channel=direct" class="btn btn-primary-outline " title="Sign In">Bejelentkezés</a>
-                            <a class="btn btn-primary" href="/tools" alt="Try Free">Regisztráció</a>
+                            <a href="/pub-regisztracio.php" class="btn btn-primary-outline" title="Sign In">Bejelentkezés</a>
+                            <a class="btn btn-primary" href="/regisztracio" alt="Try Free">Regisztráció</a>
                         </div>
 
                     </nav>
@@ -162,7 +162,9 @@
         </header>
 
 <?php 
-if ($_SEFURL['file']!="pub-mainpage.php") { # azaz valamilyen aloldal, mert főoldalra nem kell a fullwidth miatt ?>
-<div class="page-container " >
-	<div class="container">
-<?php } ?>
+//csak akkor kell a container ha valamilyen aloldal, mert főoldalra fullwidth
+if (!($_URL['goURL']=="pub-mainpage.php"))
+{ 
+echo '<div class="page-container " >
+	    <div class="container">';
+}

@@ -1,61 +1,81 @@
 <?php
 class siteBuildingUtils {
-    private $domain;
+
     
-    public function __construct($f_domain) 
-    {
-        $domain = $f_domain;
-    
-    }
-    
-	public function build_SEFURL_array($defPHP = 'pub-mainpage.php')
+    public function __construct() {}
+	public function build_URL_array()
 	{
-        global $_SEFURL;
-        if (strpos($_SERVER["HTTP_HOST"], '/') !== false) {
-            $_SEFURL = explode("/", $_GET['SEFURL']);
+        global $_URL;
+        $_URL["host"] = str_replace('www.','',$_SERVER["HTTP_HOST"]);
+        $_URL["hostPcs"] = explode('.',$_URL["host"]);
+        if (count($_URL["hostPcs"]) > 2)
+        {
+            $_URL["subdomain"] = $_URL["hostPcs"][0];
+        }else
+        {
+            $_URL["subdomain"] = '';
         }
-        $host = str_replace('www.','',$_SERVER["HTTP_HOST"]);
-        $hostPcs = explode('.',$host);
-        $website_path = '';
-        $php='';
-   
-        if (count($hostPcs) > 2) $subdomain = $hostPcs[0]; else $subdomain = '';
-        
+
+        if($_GET["file"]=='')
+        {
+            //sulid.loc-ot hívott akkor pub-mainpage.php
+            $_URL["website_path"]='';
+            $_URL["php"]=array("pub","mainpage","php");
+        }else
+        {
+            if(strrpos($_GET["file"],'/')!=false)
+            {
+                //tehát almappa kell pl: priv
+                $_URL["php"]=substr($_GET["file"], strrpos($_GET["file"],'/')+1, strlen($_GET["file"])-strrpos($_GET["file"],'/')-1);
+                $_URL["website_path"]=str_replace($_URL["php"],'',$_GET["file"]);
+    
+                $_URL["php"]=str_replace('-','.',$_URL["php"]);
+                $_URL["php"]=explode('.',$_URL["php"]);
+            }else{
+                //nincs almappa
+                $_URL["website_path"]='';
+                $_URL["php"]=$_GET["file"];
+    
+                $_URL["php"]=str_replace('-','.',$_URL["php"]);
+                $_URL["php"]=explode('.',$_URL["php"]);
+            }
+        }
+        //var_dump($_URL["website_path"]);
+        //var_dump($_URL["php"]);
+
         //egyedi oldalak
-        if ( $subdomain > '') 
+        if ( $_URL["subdomain"] > '') 
         {
-            //Ilyen lesz pl: jedlik.sulid.hu és akkor innen már jöhet a login
+
         }
-        
+
         //üzemeltető oldalak
-        if ($website_path == '' and $_SEFURL[0]=='admin' ) 
+        if ($_URL["php"][0]=='admin') 
         {
-            //Áttekintés jelsző váltás stb...
+
         } 
         
         //pri oldalak
-        if ($website_path == '' and $_SEFURL[0]=='pri' )  
+        if ($_URL["php"][0]=='priv')  
         {
 
         }
         
-        # ha még mindig semmi
-        if ($_SEFURL[0]>'')  
+        //pub oldalak /regisztracio /login
+        if (count($_URL["php"])==1)  
         {
-            $php = 'pub-'.$_SEFURL[0];
+            $_URL["php"]=array("pub",$_URL["php"][0],"php");
         }
 
-        # $_SEFURL['file'] beállítása
-        # ###########################
-        $_SEFURL['file'] = '';
-        if ($php > '') {
-            if (substr($php,-4)!='.php') $php .= '.php';
-            $_SEFURL['file'] = $website_path.$php;    
+        if(!file_exists($_URL["php"][0]."-".$_URL["php"][1].".".$_URL["php"][2]))
+        {
+            $_URL["website_path"]='';
+            $_URL["php"]=array("pub","mainpage","php");
         }
-        if (($_SEFURL['file']=='') or !file_exists($_SEFURL['file'])) {
-            $_SEFURL['file'] = $website_path.$defPHP;
-        }
-        return($_SEFURL['file']);
+        
+        $_URL["goURL"]=$_URL["website_path"].$_URL["php"][0]."-".$_URL["php"][1].".".$_URL["php"][2];
+
+        return ($_URL["goURL"]);
     }
 }
 ?>

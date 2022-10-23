@@ -1,4 +1,5 @@
-<?php 
+<?php
+if (!isset($_URL)) {header('Location:/');} //ha ugy hívja a pub oldalakat, hogy sulid.loc/pub-mainpage.php
 include('pub-site-top.php');  
 ?>
 
@@ -56,28 +57,48 @@ include('pub-site-top.php');
 <div class="desc">
     <div class="container">
         <div class="row">
-            <div class="col-7 szoveg">
+            <div class="col-7 text-left">
                 <h3>Kinek segít a szoftver?</h3>
                 <div class="underline"></div>
-                <p>A diákok gyorsan és egyszerűen tájékozódhatnak jegyeikről vagy tanulmányi átlagukról. Egy helyen láthatják a soron következő teendőiket, beadandó feladatik határidejét vagy a soron következő dolgozatokat. </p>
-                <p>A tanárok listába rendezve láthatják az oktatott diákjaikat, egyszerűen kereshetnek a diákok jegyei és adatai között. Szűrhetnek azok adatai, jegyei vagy tanulmányi átlag alapján.</p>
-                <p>A szülők betekintést nyerhetnek a gyerekeik iskolai életébe, a rendszer segítségével a szülők is értesítést kapnak a tanulók jegyeiről.</p>
+                <p>A <b>diákok</b> gyorsan és egyszerűen tájékozódhatnak jegyeikről vagy tanulmányi átlagukról. Egy helyen láthatják a soron következő teendőiket, beadandó feladatik határidejét vagy a soron következő dolgozatokat. </p>
+                <p>A <b>tanárok</b> listába rendezve láthatják az oktatott diákjaikat, egyszerűen kereshetnek a diákok jegyei és adatai között. Szűrhetnek azok adatai, jegyei vagy tanulmányi átlag alapján.</p>
+                <p>A <b>szülők</b> betekintést nyerhetnek a gyerekeik iskolai életébe, a rendszer segítségével a szülők is értesítést kapnak a tanulók jegyeiről.</p>
+                <a href="/" class="link-dark">Tovább a vélemények megtekintéséhez</a>
             </div>
             <div class="col-5">
-                <img src="/images/siteImages/laptop.jpg">
-                <div class="desc-image"></div>
+                <div class="desc-image-left"></div>
             </div>
         </div>
     </div>
 </div>
 
+<div class="desc">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="desc-image-right"></div>
+            </div>
+            <div class="col-7">
+                
+                <h3 class="desc-right">Milyen funkciók érhetőek el?</h3>
+                <div class="underline ms-auto"></div>
+                <p>Az <b>adminisztrációs modul</b> hatalmas segítséget nyújtanak az intézmény oktatóinak. Összegyűjtve láthatják az oktatott tanulók, megtekinthetik elérhetőségeiket és érdemjegyeiket. Kimutatásokat és listákat készíthetnek.</p>
+                <p>Az <b>e-napló modul</b>szorosan együttműködik az adminisztrációs oldalakkal. A modul segítségével az oktatók rögzíthetik a tanulók érdemjegyeit elektronikus módon. A tanulók és a megjelölt kapcsolattartók értesítést kapnak érdemjegyek rögzítése esetén.</p>
+                <p>A <b>naptár modul</b> biztosítja, hogy a tanulók és az oktatók is összegyűjtve lássák soron következő teendőiket és feladataikat.</p>
+                <a href="/" class="link-dark">Tovább a funkciók megtekintéséhez</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="promo">
+    <div class="container">
+        <h2>Próbáld ki most!</h2>
+        <h5>Most 30 napig ingyenesen használhatod a Sulid.hu rendszerét</h5>
+        <a href="" class="btn btn-primary">Kipróbálom most</a>
+    </div>
+</div>
 
 <?php
-
-for ($i=0; $i < 10; $i++) { 
-    echo '<div style="height:200px;"></div>';
-}
-
 include('pub-site-bottom.php');  
 ?>
