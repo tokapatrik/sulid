@@ -57,9 +57,9 @@ nav {align-items: center;display: flex;height: 65px;width: 100%;}
 .bottom-main .btn{width:150px;margin-top:10px;}
 .bottom-main .menulinks-main{color:#00437d;margin-bottom: 20px;}
 
-.regisztracio-box{background-color: #fff;height: 80vh;margin-top: 85px;margin-bottom: 20px;text-align: center;}
+.regisztracio-box{background-color: #fff;height: 85vh;margin-top: 85px;margin-bottom: 20px;text-align: center; position: relative;}
 
-.regisztracio-box .regisztracio-header{margin-top:3vh;padding:5px; border-radius: 0;text-align: center;}
+.regisztracio-box .regisztracio-header{margin-top:2vh; border-radius: 0;text-align: center;}
 .regisztracio-box h5{font-weight: 600;color:red;margin:0;}
 .regisztracio-box .szovegek{vertical-align: middle;}
 .regisztracio-box h1{font-weight: 600;margin-top:15vh; margin-bottom: 0px;}
@@ -73,4 +73,34 @@ nav {align-items: center;display: flex;height: 65px;width: 100%;}
 .regisztracio-box .progrssbar{background-color: #00437d;position: absolute;top: 50%;left: 0;transform: translateY(-50%);height: 10px;width: 0%;z-index: 4;transition: 0.4s ease;}
 .regisztracio-box .circle{z-index: 5;background-color: #eff0f0;border-radius: 50%;height: 50px;width: 50px;border: 3px solid #adadad;display: flex;align-items: center;justify-content: center;transition: 0.4s ease;}
 .regisztracio-box .circle.activec{z-index: 5;background-color: #00437d;color:#fff;border-radius: 50%;height: 50px;width: 50px;border: 3px solid #00437d;display: flex;align-items: center;justify-content: center;transition: 0.4s ease;}
-  
+.regisztracio-box .progrss-labels{text-align: center;margin: 0px;padding: 0px;width:50%;margin:auto;display:flex;justify-content: space-between;position: relative;}
+.regisztracio-box .progress-label{position: relative;margin: 0px;padding: 0px;width: 50px;}
+.regisztracio-box .label-text{font-size: 15px;position: absolute;left: 50%;transform: translateX(-50%);text-align: center;}
+
+.regisztracio-box .prev{font-size: large;position: absolute;left:6vh;bottom: 4vh;}
+.regisztracio-box .next{font-size: large;position: absolute;right:6vh;bottom: 4vh;}
+
+.regisztracio-box .aszf-container{
+    padding: 3vh 2vh 5vh;
+    text-align: justify;
+    height: 40vh;
+    width: calc(100% - 12vh);
+    margin: auto;
+    margin-top: 11vh;
+    overflow-y: scroll;
+    line-height: 25px;
+    word-spacing: 2px;
+    white-space: 30px;
+}
+
+.regisztracio-box .form-container1{
+    text-align:left;
+    width: calc(100% - 12vh);
+    margin: auto;
+    margin-top: 3vh;
+}
+
+.regisztracio-box .form-check-input{
+    margin-right: 5px;
+    margin-bottom: 1vh;
+}

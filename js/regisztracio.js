@@ -1,11 +1,11 @@
 $(document).ready(function () 
 {
-    $("#startregisztracio").click(function() {
-
+    $("#next").click(function() {
+        console.log("send...");
         $.ajax({
             type: "post",
             url: "/ajax/ajax-regisztracio.php", 
-            data: $("#pageNumber-container").serialize(),
+            data: $("#regisztracio-form").serialize(),
             dataType: "json",
             success: function(retObj){
                 console.log(retObj);
