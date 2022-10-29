@@ -73,4 +73,4 @@ echo '      </div> <!--container-->
 <script src="/bootstrap-5.2.0-dist/js/bootstrap.bundle.js" ></script>
 <script src='/js/animate.js'></script>
 <script src='/js/public.js'></script>
-<script src="/js/regisztracio.js" ></script>
+<script src="/js/progressbar.js" ></script>

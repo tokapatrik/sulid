@@ -59,6 +59,10 @@ nav {align-items: center;display: flex;height: 65px;width: 100%;}
 
 .regisztracio-box{background-color: #fff;height: 85vh;margin-top: 85px;margin-bottom: 20px;text-align: center; position: relative;}
 
+.regisztracio-hide{display: none;}
+.regisztracio-body{display: none;text-align: left;}
+.regisztracio-body-active{display: block;}
+
 .regisztracio-box .regisztracio-header{margin-top:2vh; border-radius: 0;text-align: center;}
 .regisztracio-box h5{font-weight: 600;color:red;margin:0;}
 .regisztracio-box .szovegek{vertical-align: middle;}
@@ -77,8 +81,9 @@ nav {align-items: center;display: flex;height: 65px;width: 100%;}
 .regisztracio-box .progress-label{position: relative;margin: 0px;padding: 0px;width: 50px;}
 .regisztracio-box .label-text{font-size: 15px;position: absolute;left: 50%;transform: translateX(-50%);text-align: center;}
 
-.regisztracio-box .prev{font-size: large;position: absolute;left:6vh;bottom: 4vh;}
-.regisztracio-box .next{font-size: large;position: absolute;right:6vh;bottom: 4vh;}
+.regisztracio-box .prev{font-size: large;position: absolute;left:6vh;bottom: 4vh; width:130px;}
+.regisztracio-box .next{font-size: large;position: absolute;right:6vh;bottom: 4vh; width:130px;}
+.regisztracio-box .close{font-size: large;position: absolute;right:6vh;top: 4vh;}
 
 .regisztracio-box .aszf-container{
     padding: 3vh 2vh 5vh;
@@ -103,4 +108,32 @@ nav {align-items: center;display: flex;height: 65px;width: 100%;}
 .regisztracio-box .form-check-input{
     margin-right: 5px;
     margin-bottom: 1vh;
+}
+
+.regisztracio-box .data-container{
+    position: relative;
+    margin-top:10vh;
+    margin-left:35vh;
+    margin-right:35vh;
+}
+
+.regisztracio-box .username{
+    margin-top: 0rem;
+}
+
+.regisztracio-box .big-padding{
+    padding: 1rem 0.75rem;
+}
+
+.regisztracio-box .close{
+    color: #adadad;
+}
+.regisztracio-box .close:hover{
+    color: black;
+}
+
+.regisztracio-box .attekintes{
+    margin-top:10vh;
+    margin-left:15vh;
+    margin-right:15vh;
 }
