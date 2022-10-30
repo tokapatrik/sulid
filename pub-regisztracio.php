@@ -1,15 +1,17 @@
 <?php 
 include('pub-site-top.php');
 
-if(isset($_REQUEST))
+if($_REQUEST["pageNumber"]=="99")
 {
-    var_dump($_REQUEST);
+    echo "<br><br><br><br><br><br><br>Sikeres regisztráció";
 }
+else
+{
 
 ?>
 <form id="regisztracio-form" method="post">
     <div class="border shadow regisztracio-box " id="regisztracio-start">
-        <input type="hidden" id="pageNumber" name="pageNumber" value="0">
+        <input type="hidden" name="pageNumber" value="0">
         <div class="regisztracio-header alert alert-warning">
             <h5>Figyelem a regisztráció csak az iskolák részére vonatkazik<br>amennyiben tanulóként szeretne regisztrálni keressel fel oktatási intézményét!</h5>
         </div>
@@ -39,7 +41,7 @@ if(isset($_REQUEST))
 
         <div class="regisztracio-body" id="regisztracio-body1">
             <div class="aszf-container border shadow-sm"><?echo ASZF?></div>
-            <input type="hidden" name="pageNumber" value="1">
+            <input type="hidden" id="pageNumber" name="pageNumber" value="1">
             <div class="form-container1">
                 <div>
                     <input class="form-check-input" type="checkbox" id="checkAszf" name="checkAszf">
@@ -238,6 +240,9 @@ if(isset($_REQUEST))
         </div>
     </div>
 </form>
+
+<?}?>
+
 <?
 include('pub-site-bottom.php');  
 ?>

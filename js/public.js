@@ -172,6 +172,7 @@ $('.cards').hover(
       {
         title: '</b>Véglegesíti a regisztrációt?</b>',
         content: 'A regisztráció rögzítéséhez kattintson a <b>Véglegesítés</b> gombra',
+        typeAnimated: true,
         buttons:
         {
           aktival:
@@ -186,8 +187,27 @@ $('.cards').hover(
                 data: $("#regisztracio-form").serialize(),
                 dataType: "json",
                 success: function(retArray){
-                  console.log(retArray.retData);
-                  alert(retArray.retData);
+                  if(retArray.retCode==5)
+                  {
+                    $('#pageNumber').val("99");
+                    $("#regisztracio-form").submit();
+                  }
+                  else
+                  {
+                    $.confirm({
+                      title: '<b>Hibás adat!</b>',
+                      content: retArray.retMsg,
+                      type: 'red',
+                      typeAnimated: true,
+                      buttons: {
+                          Bezar: {
+                              text: 'Bezár',
+                              action: function(){
+                              }
+                          }
+                      }
+                    });
+                  }
                 }
               });
             }

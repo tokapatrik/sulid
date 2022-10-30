@@ -27,9 +27,8 @@ define("SMTP_PASSWORD", 'asdasd');
 if ($_SERVER["HTTP_HOST"] == HOST_DEV || substr($_SERVER["HTTP_HOST"],-4)=='.loc')
 {
 	//.loc oldalak 
-    define("EO_DOMAIN", 'egyesuletonline.loc');
     define("DB_HOST", 'localhost');
-	define("DB_DATABASE", 'egyesuletonline');
+	define("DB_DATABASE", 'sulid');
     define("DB_USERNAME", 'root');
 	define("DB_PASSWORD", '');
     define("SMTP", false);
