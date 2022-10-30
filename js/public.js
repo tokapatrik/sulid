@@ -135,35 +135,30 @@ $('.cards').hover(
         {
             $(".next").removeClass("ok");
             if( $("#intezmenyNeve").val().length == 0){
-                console.log("asd");
                 $('#intezmenyNeve').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyNeve']" ).effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyNeve']" ).addClass("text-danger");
                 setTimeout(function() {$( "label[for='intezmenyNeve']" ).removeClass("text-danger");}, 2000);
             }
             if($("#intezmenyOm").val().length==0){
-                console.log("asd");
                 $('#intezmenyOm').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyOm']" ).effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyOm']" ).addClass("text-danger");
                 setTimeout(function() {$( "label[for='intezmenyOm']" ).removeClass("text-danger");}, 2000);
             }
             if($("#intezmenyIrsz").val().length==0){
-                console.log("asd");
                 $('#intezmenyIrsz').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyIrsz']" ).effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyIrsz']" ).addClass("text-danger");
                 setTimeout(function() {$( "label[for='intezmenyIrsz']" ).removeClass("text-danger");}, 2000);
             }
             if($("#intezmenyVaros").val().length==0){
-                console.log("asd");
                 $('#intezmenyVaros').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyVaros']" ).effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyVaros']" ).addClass("text-danger");
                 setTimeout(function() {$( "label[for='intezmenyVaros']" ).removeClass("text-danger");}, 2000);
             }
             if($("#intezmenyUtca").val().length==0){
-                console.log("asd");
                 $('#intezmenyUtca').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyUtca']" ).effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyUtca']" ).addClass("text-danger");
@@ -173,4 +168,38 @@ $('.cards').hover(
   });
 
   $('#regisztracio-body4 > #next').on("click", function() {
+    $.confirm(
+      {
+        title: '</b>Véglegesíti a regisztrációt?</b>',
+        content: 'A regisztráció rögzítéséhez kattintson a <b>Véglegesítés</b> gombra',
+        buttons:
+        {
+          aktival:
+          {
+            text: "Véglegesítés",
+            btnClass: "btn-primary",
+            action: function()
+            { 
+              $.ajax({
+                type: "post",
+                url: "/ajax/ajax-regisztracio.php", 
+                data: $("#regisztracio-form").serialize(),
+                dataType: "json",
+                success: function(retArray){
+                  console.log(retArray.retData);
+                  alert(retArray.retData);
+                }
+              });
+            }
+          },
+          cancel:
+          {
+            text: "Mégsem",
+            btnClass: "btn-light",
+            action: function(){ }
+          },
+        }
+      })
   });
+
+  

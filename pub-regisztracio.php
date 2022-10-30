@@ -1,5 +1,11 @@
 <?php 
-include('pub-site-top.php');  
+include('pub-site-top.php');
+
+if(isset($_REQUEST))
+{
+    var_dump($_REQUEST);
+}
+
 ?>
 <form id="regisztracio-form" method="post">
     <div class="border shadow regisztracio-box " id="regisztracio-start">
@@ -54,13 +60,13 @@ include('pub-site-top.php');
                 <div class="row g-3 mt-0 mb-3" id="felhasznalonev">
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Vezetéknév" aria-label="Vezeteknev" id="vezetekNev">
+                            <input type="text" class="form-control" placeholder="Vezetéknév" aria-label="Vezeteknev" id="vezetekNev" name="vezetekNev">
                             <label for="vezetekNev" style="opacity: 0.65;">Vezetéknév</label>
                         </div>
                     </div>
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Keresztnév" aria-label="Keresztnev" id="keresztNev">
+                            <input type="text" class="form-control" placeholder="Keresztnév" aria-label="Keresztnev" id="keresztNev" name="keresztNev">
                             <label for="keresztNev" style="opacity: 0.65;">Keresztnév</label>
                         </div>
                     </div>
@@ -70,7 +76,7 @@ include('pub-site-top.php');
 
                 <div class="mb-3">
                     <label for="emailCim" class="form-label">E-mail cím:</label>
-                    <input type="email" class="form-control big-padding" id="emailCim" placeholder="pl: demo@mail.hu" >
+                    <input type="email" class="form-control big-padding" id="emailCim" placeholder="pl: demo@mail.hu" name="emailCim">
                     <div id="emailCim" class="form-text">A véglegesítést követően a rendszer a megadott címre megerősítő e-mail fog küldeni</div>
                 </div>
 
@@ -78,13 +84,13 @@ include('pub-site-top.php');
                 <div class="row g-3 mt-0 mb-3" id="jelszo">
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="password" class="form-control" placeholder="jelszo" aria-label="jelszo" id="jelszo1">
+                            <input type="password" class="form-control" placeholder="jelszo" aria-label="jelszo" id="jelszo1" name="jelszo1">
                             <label for="jelszo1" style="opacity: 0.65;">Jelszó</label>
                         </div>
                     </div>
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="password" class="form-control" placeholder="jelszo" aria-label="jelszo" id="jelszo2">
+                            <input type="password" class="form-control" placeholder="jelszo" aria-label="jelszo" id="jelszo2" name="jelszo2">
                             <label for="jelszo2" style="opacity: 0.65;">jelszó megerősítés</label>
                         </div>
                     </div>
@@ -101,7 +107,7 @@ include('pub-site-top.php');
 
                 <label for="intezmenyNeve" class="form-label">Intézmény neve:</label>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="intezmenyNeve" placeholder="intezmenyneve" aria-label="Vezeteknev">
+                    <input type="text" class="form-control" id="intezmenyNeve" placeholder="intezmenyneve" aria-label="Vezeteknev" name="intezmenyNeve">
                     <label for="intezmenyNeve" class="form-label" style="opacity: 0.65;">Név</label>
                 </div>
                 <div id="intezmenyNeve" class="form-text mb-3">A nyilvántartásba ezzel a névvel fogjuk rögzíteni az oktatási intézményt</div>
@@ -109,7 +115,7 @@ include('pub-site-top.php');
 
                 <label for="intezmenyOm" class="form-label">Intézmény OM kód:</label>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="intezmenyOm" placeholder="intezmeny om" aria-label="intezmeny om">
+                    <input type="text" class="form-control" id="intezmenyOm" placeholder="intezmeny om" aria-label="intezmeny om" name="intezmenyOm">
                     <label for="intezmenyOm" class="form-label" style="opacity: 0.65;" >Azonosító</label>
                 </div>
                 <div id="intezmenyOm" class="form-text mb-3">Nagyon fontos, hogy az OM kód azonosítót megfelelően rögzítsük, mert később az intézményt ezzel tudjuk beazonosítani</div>
@@ -118,13 +124,13 @@ include('pub-site-top.php');
                 <div class="row g-3 mt-0 mb-3" id="cim">
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="number" class="form-control" placeholder="iranyitoszam" aria-label="iranyitoszam" id="intezmenyIrsz">
+                            <input type="number" class="form-control" placeholder="iranyitoszam" aria-label="iranyitoszam" id="intezmenyIrsz" name="intezmenyIrsz">
                             <label for="intezmenyIrsz" style="opacity: 0.65;">Irányítószám</label>
                         </div>
                     </div>
                     <div class="col mt-0">
                         <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="varos" aria-label="varos" id="intezmenyVaros">
+                            <input type="text" class="form-control" placeholder="varos" aria-label="varos" id="intezmenyVaros" name="intezmenyVaros">
                             <label for="intezmenyVaros" style="opacity: 0.65;">Város</label>
                         </div>
                     </div>
@@ -133,7 +139,7 @@ include('pub-site-top.php');
                 <div class="row">
                     <div class="col">
                         <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="intezmenyUtca" aria-label="intezmenyUtca" id="intezmenyUtca">
+                            <input type="text" class="form-control" placeholder="intezmenyUtca" aria-label="intezmenyUtca" id="intezmenyUtca" name="intezmenyUtca">
                             <label for="intezmenyUtca" style="opacity: 0.65;">Utca, házszám</label>
                         </div>
                     </div>

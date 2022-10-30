@@ -12,6 +12,7 @@
         <link rel='stylesheet' href='/bootstrap-5.2.0-dist/css/bootstrap.css' type='text/css' media='all' />
         <link rel='stylesheet' href='/fontawesome-5.15.1/css/all.min.css' type='text/css'  media='all' />
         <link rel='stylesheet' href='/css/animate.css' type='text/css' media='all' />
+        <link rel='stylesheet' href='/css/jquery-confirm.css' type='text/css' media='all' />
         <link rel='stylesheet' href='/css/public.css' type='text/css' media='all' />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,700,800|Roboto:400,500,700,900" rel="stylesheet">
     </head>
