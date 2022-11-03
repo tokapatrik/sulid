@@ -38,7 +38,7 @@ else
     {
         //Intézmény Rövid neve
         $_REQUEST["intezmenyRovidNeve"]=strtolower($_REQUEST["intezmenyRovidNeve"]);
-        $rs= getQuery("SELECT * FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyRovidNeve"]."'");
+        $rs= getQuery("SELECT * FROM iskola WHERE isk_rovid_nev='".$_REQUEST["intezmenyRovidNeve"]."'");
         if(count($rs)==0 || strlen($_REQUEST["intezmenyRovidNeve"])<16)
         {
             //Intézmény OM
