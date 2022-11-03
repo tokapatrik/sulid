@@ -28,6 +28,9 @@ $('.cards').hover(
   $("#intezmenyNeve").keyup(function() {
     $("#attekintesIntezmenyNeve").val($('#intezmenyNeve').val());
   });
+  $("#intezmenyRovidNeve").keyup(function() {
+    $("#attekintesIntezmenyRovidNeve").val($('#intezmenyRovidNeve').val());
+  });
   
   $("#intezmenyOm").keyup(function() {
     $("#attekintesIntezmenyOm").val($('#intezmenyOm').val());
@@ -124,6 +127,7 @@ $('.cards').hover(
   $('#regisztracio-body3 > #next').on("click", function() {
     if(
         $("#intezmenyNeve").val().length>0  &&
+        $("#intezmenyRovidNeve").val().length>0  &&
         $("#intezmenyOm").val().length>0  &&
         $("#intezmenyIrsz").val().length>0    &&
         $("#intezmenyVaros").val().length>0 &&
@@ -140,6 +144,12 @@ $('.cards').hover(
                 $( "label[for='intezmenyNeve']" ).addClass("text-danger");
                 setTimeout(function() {$( "label[for='intezmenyNeve']" ).removeClass("text-danger");}, 2000);
             }
+            if( $("#intezmenyRovidNeve").val().length == 0){
+              $('#intezmenyRovidNeve').effect("pulsate", {times:1}, 500);
+              $( "label[for='intezmenyRovidNeve']" ).effect("pulsate", {times:1}, 500);
+              $( "label[for='intezmenyRovidNeve']" ).addClass("text-danger");
+              setTimeout(function() {$( "label[for='intezmenyRovidNeve']" ).removeClass("text-danger");}, 2000);
+          }
             if($("#intezmenyOm").val().length==0){
                 $('#intezmenyOm').effect("pulsate", {times:1}, 500);
                 $( "label[for='intezmenyOm']" ).effect("pulsate", {times:1}, 500);

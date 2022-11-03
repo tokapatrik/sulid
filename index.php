@@ -12,9 +12,9 @@ if (count($uripcs)>1 //van .php?
     exit;
 } 
 
-include_once('classes/class.siteBuildingUtils.php');
-$siteBuildingUtils = new siteBuildingUtils();
-$file=$siteBuildingUtils->build_URL_array();
+include_once('classes/class-siteBuilder.php');
+$siteBuilder = new siteBuilder();
+$file=$siteBuilder->build_URL_array();
 
 require_once($file);
 

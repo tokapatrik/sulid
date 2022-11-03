@@ -3,7 +3,15 @@ include('pub-site-top.php');
 
 if($_REQUEST["pageNumber"]=="99")
 {
-    echo "<br><br><br><br><br><br><br>Sikeres regisztráció";
+?>
+    <div class="border shadow regisztracio-box " id="regisztracio-start">
+    <input type="hidden" name="pageNumber" value="0">
+    <div class="success-circel-big"><div class="success-circel-inner"><i class="fas fa-check pipa fa-10x"></i></div></div>
+    <h1 class="mt-3">Sikeres regisztráció!</h1>
+    <p>A regisztráció során megadott címre e-mail küldtünk: <?$_REQUEST["emailCim"]?><br>Az emailben található kód segítségével kérjük erősítse meg fiókját</p>
+    <a class="link-dark" href="/" alt="Try Free">Vissza a főoldalra</a>
+</div>
+<?
 }
 else
 {
@@ -107,13 +115,23 @@ else
         <div class="regisztracio-body" id="regisztracio-body3">
             <div class="data-container">
 
-                <label for="intezmenyNeve" class="form-label">Intézmény neve:</label>
-                <div class="form-floating">
-                    <input type="text" class="form-control" id="intezmenyNeve" placeholder="intezmenyneve" aria-label="Vezeteknev" name="intezmenyNeve">
-                    <label for="intezmenyNeve" class="form-label" style="opacity: 0.65;">Név</label>
-                </div>
-                <div id="intezmenyNeve" class="form-text mb-3">A nyilvántartásba ezzel a névvel fogjuk rögzíteni az oktatási intézményt</div>
-
+                <label for="nev" class="form-label">Intézmény neve:</label>
+                <div class="row g-3 mt-0 mb-3" id="nev">
+                    <div class="col mt-0">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" placeholder="intezmenyneve" aria-label="Vezeteknev" id="intezmenyNeve" name="intezmenyNeve">
+                            <label for="intezmenyNeve" style="opacity: 0.65;">Teljes nev</label>
+                            <div class="form-text mb-3">A nyilvántartásba ezzel a névvel fogjuk rögzíteni az oktatási intézményt</div>
+                        </div>
+                    </div>
+                    <div class="col mt-0">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" placeholder="intezmenyrovidneve" aria-label="Vezeteknev" id="intezmenyRovidNeve" name="intezmenyRovidNeve">
+                            <label for="intezmenyRovidNeve" style="opacity: 0.65;">Rövid nev</label>
+                            <div class="form-text mb-3">Bejelentkezési űrlap címében használatos név. pl: rovidnev.sulid.hu</div>
+                        </div>
+                    </div>
+                </div> 
 
                 <label for="intezmenyOm" class="form-label">Intézmény OM kód:</label>
                 <div class="form-floating">
@@ -198,11 +216,22 @@ else
                     <fieldset disabled>
                         <h5 class="text-dark mb-3">Intézményi adatok</h5>
 
-                        <label for="attekintesIntezmenyNeve" class="form-label">Intézmény neve:</label>
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="attekintesIntezmenyNeve" placeholder="intezmenyneve" aria-label="Vezeteknev">
-                            <label for="attekintesIntezmenyNeve" class="form-label" style="opacity: 0.65;">Név</label>
-                        </div>
+                        <label for="nev" class="form-label">Intézmény neve:</label>
+                        <div class="row g-3 mt-0 mb-3" id="nev">
+                            <div class="col mt-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="intezmenyneve" aria-label="Vezeteknev" id="attekintesIntezmenyNeve">
+                                    <label for="attekintesIntezmenyNeve" style="opacity: 0.65;">Teljes nev</label>
+
+                                </div>
+                            </div>
+                            <div class="col mt-0">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="attekintesIntezmenyRovidNeve" aria-label="Vezeteknev" id="attekintesIntezmenyRovidNeve">
+                                    <label for="attekintesIntezmenyRovidNeve" style="opacity: 0.65;">Rövid nev</label>
+                                </div>
+                            </div>
+                        </div> 
 
                         <label for="attekintesIntezmenyOm" class="form-label mt-3">Intézmény OM kód:</label>
                         <div class="form-floating">
