@@ -10,7 +10,11 @@ if (count($uripcs)>1 //van .php?
     header('HTTP/1.1 404 Not Found');
     echo '404! File not found!';
     exit;
-} 
+}
+
+session_name('SessionName');
+session_set_cookie_params(0);
+session_start();
 
 include_once('classes/class-siteBuilder.php');
 $siteBuilder = new siteBuilder();

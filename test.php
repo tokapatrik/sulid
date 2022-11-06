@@ -1,5 +1,6 @@
 <?php
 include_once("include.php");
-$result=getQuery("SELECT * FROM user");
-var_dump($result);
+$hash = password_hash("1234Cubix1", PASSWORD_DEFAULT);
+var_dump(gmdate('Y-m-d h:i:s \G\M\T', time()));
+
 ?>

@@ -5,6 +5,49 @@ $('.cards').hover(
     }
 )
 
+$('#loginModalClose').on("click", function() {
+  $('#searchbar').val('');
+  $('#loginModalResults').css( "text-align", "center" );
+  $('#loginModalResults').html('');
+});
+
+$('#loginModalKereses').on("click", function() {
+  $('#loginModalResults').css( "text-align", "center" );
+  $('#loginModalResults').html('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>');
+  $('#loginModal').modal('handleUpdate');
+  $.ajax({
+    type: "post",
+    url: "/ajax/ajax-login-kereses.php", 
+    data: $("#loginSearchForm").serialize(),
+    dataType: "json",
+    success: function(retArray){
+      if(retArray.retCode==5)
+      {
+        $('#loginModalResults').css( "text-align", "left" );
+        $('#loginModalResults').html(retArray.retData);
+        $('#loginModal').modal('handleUpdate');
+      }
+      if(retArray.retCode==6)
+      {
+        $('#loginModalResults').css( "text-align", "center" );
+        $('#loginModalResults').html(retArray.retData);
+        $('#loginModal').modal('handleUpdate');
+      }
+      if(retArray.retCode==9)
+      {
+        $('#loginModalResults').css( "text-align", "left" );
+        $('#loginModalResults').html(retArray.retMsg);
+        $('#loginModal').modal('handleUpdate');
+      }
+    }
+  });
+});
+
+$('loginKeresesCard').on("click", function() {
+  console.log("asd");
+  $('loginKeresesCard').addClass( "loginKeresesCardSelected" );
+});
+
   $("#vezetekNev").keyup(function() {
     $("#attekintesVezetekNev").val($('#vezetekNev').val());
   });

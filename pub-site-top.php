@@ -161,14 +161,38 @@ if(!isset($_URL['goURL']))
                             </li>
                         </ul>
                         <div class="nav-buttons ms-auto">
-                            <a href="/regisztracio" class="btn btn-primary-outline" title="Sign In">Bejelentkezés</a>
+                            <a class="btn btn-primary-outline" <? if($_SESSION["logd_in"]) {echo 'href="/priv"';}else{echo 'data-bs-toggle="modal" data-bs-target="#loginModal"';}?>><? if($_SESSION["logd_in"]) {echo $_SESSION["user"]["usr_nev"];}else{echo 'Bejelentkezés';}?></a>
                             <a class="btn btn-primary" href="/regisztracio" alt="Try Free">Regisztráció</a>
                         </div>
-
                     </nav>
                 </div>
             </div>
         </header>
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalTitle" style="font-weight: 600;">Kérjük válassza ki oktatási intézményét</h5>
+                <button type="button" id="loginModalClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3 mx-2 px-3 mt-1 shadow-sm border" id="loginSearchForm">
+                    <label for="searchbar" class="form-label">Keresse meg iskoláját <b>neve</b> vagy <b>OM kódja</b> alapján</label>
+                    <div class="col-10 mt-0">
+                        <input type="text" class="form-control" id="searchbar" name="searchbar" aria-describedby="kereses" placeholder="Például: Demosuli vagy 1122334">
+                    </div>
+                    <div class="col-2 mt-0">
+                        <div class="btn btn-primary mb-3" style="width: 100%" id="loginModalKereses">Keresés</div>
+                    </div>
+                </form>
+                <div id="loginModalResults" class="loginModalResults mt-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 

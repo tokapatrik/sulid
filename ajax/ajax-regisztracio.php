@@ -73,8 +73,10 @@ else
                         //Mehet be a user
                         if($iskId!='')
                         {
-                            $rs = setQuery(" INSERT INTO user (usr_isk_id, usr_nev, usr_nev_vezetek, usr_nev_kereszt, usr_email)
-                                            VALUES ('".$iskId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."');");
+                            //Jelszó hash
+                            $hash = password_hash($_REQUEST["jelszo1"].HASH_SALT, PASSWORD_DEFAULT);
+                            $rs = setQuery(" INSERT INTO user (usr_isk_id, usr_nev, usr_nev_vezetek, usr_nev_kereszt, usr_email, usr_pwd)
+                                            VALUES ('".$iskId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."', '".$hash."');");
                             $usrId= getQuery("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["isk_id"];
                             $retArray["retCode"]=5;
                             $retArray["retMsg"]='';
