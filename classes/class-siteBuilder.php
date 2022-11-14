@@ -5,6 +5,7 @@ class siteBuilder {
     public function __construct() {}
 	public function build_URL_array()
 	{
+        $userClassPtr = new User();
         global $_URL;
         $_URL["host"] = str_replace('www.','',$_SERVER["HTTP_HOST"]);
         $_URL["hostPcs"] = explode('.',$_URL["host"]);
@@ -24,15 +25,15 @@ class siteBuilder {
                 $_URL["php"]=substr($_GET["file"], strrpos($_GET["file"],'/')+1, strlen($_GET["file"])-strrpos($_GET["file"],'/')-1);
                 $_URL["website_path"]=str_replace($_URL["php"],'',$_GET["file"]);
 
-                $_URL["php"]=str_replace('-','.',$_URL["php"]);
-                $_URL["php"]=explode('.',$_URL["php"]);
+                //$_URL["php"]=str_replace('-','.',$_URL["php"]);
+                //$_URL["php"]=explode('.',$_URL["php"]);
             }else{
                 //nincs almappa
                 $_URL["website_path"]='';
                 $_URL["php"]=$_GET["file"];
     
-                $_URL["php"]=str_replace('-','.',$_URL["php"]);
-                $_URL["php"]=explode('.',$_URL["php"]);
+                //$_URL["php"]=str_replace('-','.',$_URL["php"]);
+                //$_URL["php"]=explode('.',$_URL["php"]);
             }
         }
         //var_dump($_URL["website_path"]);
@@ -60,20 +61,29 @@ class siteBuilder {
             echo "üzemeltető oldalak";
         } 
         
-        //pri oldalak + kidolgozás alatt
-        if ($_URL["php"][0]=='priv')  
+        //pri oldalak
+        if ($_URL["php"]=='priv' || $_URL["website_path"]=='priv/')  
         {
-            echo "Under construction!<br>";
-            echo "pri oldalak";
-            die();
+            $userClassPtr->userLogdIn();
+
+            if($_URL["php"]=='priv')
+            {
+                $_URL["website_path"]="priv_files/";
+                $_URL["php"]=array("priv","mainpage","php");
+            }
+            else
+            {
+                $_URL["php"]=array("priv",$_URL["php"],"php");
+            }
         }
         
         //pub oldalak /regisztracio /login
-        if (count($_URL["php"])==1)  {
-            $_URL["php"]=array("pub",$_URL["php"][0],"php");
+        if (!is_array($_URL["php"])) // Ha be lett már állítva akkor tömb lesz
+        {
+            $_URL["php"]=array("pub",$_URL["php"],"php");
         }
 
-        if(!file_exists($_URL["php"][0]."-".$_URL["php"][1].".".$_URL["php"][2])){
+        if(!file_exists($_URL["website_path"].$_URL["php"][0]."-".$_URL["php"][1].".".$_URL["php"][2])){
             $_URL["website_path"]='';
             $_URL["php"]=array("pub","mainpage","php");
         }

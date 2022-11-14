@@ -1,0 +1,57 @@
+.menubar{
+    font-weight: 600;
+    font-size: 3vh;
+    color: #6c6c6c;
+    overflow-y: auto;
+}
+.nameBox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    border-bottom: solid 3px #4d5360;
+}
+.nameBoxLogo{
+    float:left; 
+    height:6vh;
+    min-height: 6vh;
+    min-width: 6vh;
+    width:6vh;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .menubarBottom{
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+  }
+  .menubarButton{
+    height: 6vh;
+    display:flex;
+    align-items: center;
+    width: 100%;
+  }
+  .menubarButtonLink{
+    color: #6c6c6c;text-decoration: none;height:100%;line-height:6vh;text-align: center;
+  }
+
+  .menubarButton > i{
+    text-align: center;
+    width: 30px;
+  }
+
+  .privSiteTop{
+    font-weight: 600;
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+  }

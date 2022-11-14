@@ -11,8 +11,8 @@ $retArray=array(
 $_REQUEST['vezetekNev'] ='Tóka';
 $_REQUEST['keresztNev'] ='Patrik';
 $_REQUEST['emailCim'] ='asd@asd.hu';
-$_REQUEST['jelszo1'] ='';
-$_REQUEST['jelszo2'] ='';
+$_REQUEST['jelszo1'] ='1234Cubix1';
+$_REQUEST['jelszo2'] ='1234Cubix1';
 $_REQUEST['intezmenyNeve'] ='Jedlik';
 $_REQUEST['intezmenyRovidNeve'] ='JedDIk';
 $_REQUEST['intezmenyOm'] ='123';
@@ -61,32 +61,25 @@ else
                     if(strlen($_REQUEST["jelszo1"])>=8 && strlen($_REQUEST["jelszo1"])<=20 && preg_match('~[0-9]+~', $_REQUEST["jelszo1"]) && preg_match('/[A-Z]/', $_REQUEST["jelszo1"]) && preg_match('/[a-z]/', $_REQUEST["jelszo1"])) //Elég az egyik jelszóra mert egyezni fognak a frontend miatt, ha nem így járt
                     {
                         //intézmény beszúr
-                        $rs = setQuery("  INSERT INTO iskola (isk_nev, isk_rovid_nev , isk_om, isk_irsz, isk_varos, isk_cim)
-                        VALUES ('".$_REQUEST["intezmenyNeve"]."','".$_REQUEST["intezmenyRovidNeve"]."', '".$_REQUEST["intezmenyOm"]."', '".$_REQUEST["intezmenyIrsz"]."', '".$_REQUEST["intezmenyVaros"]."', '".$_REQUEST["intezmenyUtca"]."');");
+                        $rs = setQuery("    INSERT INTO iskola (isk_nev, isk_rovid_nev , isk_om, isk_irsz, isk_varos, isk_cim)
+                                            VALUES ('".$_REQUEST["intezmenyNeve"]."','".$_REQUEST["intezmenyRovidNeve"]."', '".$_REQUEST["intezmenyOm"]."', '".$_REQUEST["intezmenyIrsz"]."', '".$_REQUEST["intezmenyVaros"]."', '".$_REQUEST["intezmenyUtca"]."');");
                         $iskId= getQuery("SELECT isk_id FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyNeve"]."' AND isk_om='".$_REQUEST["intezmenyOm"]."'")[0]["isk_id"];
-                        if($rs<>true)
-                        {
-                            $retArray["retCode"]=9;
-                            $retArray["retMsg"]="Hiba az intézmény rögzítése során!";
-                        }
 
-                        //Mehet be a user
-                        if($iskId!='')
-                        {
-                            //Jelszó hash
-                            $hash = password_hash($_REQUEST["jelszo1"].HASH_SALT, PASSWORD_DEFAULT);
-                            $rs = setQuery(" INSERT INTO user (usr_isk_id, usr_nev, usr_nev_vezetek, usr_nev_kereszt, usr_email, usr_pwd)
-                                            VALUES ('".$iskId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."', '".$hash."');");
-                            $usrId= getQuery("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["isk_id"];
-                            $retArray["retCode"]=5;
-                            $retArray["retMsg"]='';
-                            if($rs<>true)
-                            {
-                                setQuery("DELETE FROM iskola WHERE isk_id='".$iskId."';"); //Mert ha nem tudjuk rögzíteni az igazgatót iskola se maradjon bent
-                                $retArray["retCode"]=9;
-                                $retArray["retMsg"]="Hiba a felhasználó rögzítése során!";
-                            }
-                        }
+                        $hash = password_hash($_REQUEST["jelszo1"].HASH_SALT, PASSWORD_DEFAULT);
+
+                        //user beszúr
+                        $rs = setQuery("    INSERT INTO user (usr_isk_id, usr_nev, usr_tipus, usr_email, usr_jelszo)
+                                            VALUES ('".$iskId."', '".$usr_nev."', 'vez', '".$_REQUEST["emailCim"]."', '".$hash."');");
+                        
+                        $usrId= getQuery("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["usr_id"];
+
+                        //Vezetőségi tag beszúr
+                        $rs = setQuery("    INSERT INTO vezetoseg (vez_usr_id, vez_nev, vez_nev_vezetek, vez_nev_kereszt, vez_email)
+                                            VALUES ('".$usrId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."');");
+                        
+
+                        $retArray["retCode"]=5;
+                        $retArray["retMsg"]='';
                     }
                     else
                     {

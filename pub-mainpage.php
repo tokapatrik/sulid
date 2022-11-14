@@ -6,6 +6,7 @@ include('pub-site-top.php');
 <div class="nav-spacer"></div>
 <div class="hero">
     <div class="container">
+        <? if($_SESSION["errorMSG"]>'') {echo $_SESSION["errorMSG"]; $_SESSION["errorMSG"]='';}?>
         <div class="row">
             <div class="col hero-text">
                 <h1>Digitális oktatás <br>Mindenki részére</h1>

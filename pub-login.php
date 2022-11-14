@@ -1,11 +1,9 @@
 <?php
-
 //Be van jelentkezve
-if ($_SESSION["logd_in"])
+if ($_SESSION["logd_in"]==true)
 {
-    $url='http://sulid.loc/priv';
-    header('location: '.$url);
-    die();
+    header('location: http://sulid.loc/priv');
+    exit();
 }
 
 //iskola adatai
@@ -23,16 +21,25 @@ if(isset($_REQUEST["email"]))
         $rs=getQuery("SELECT * FROM user WHERE usr_email='".$_REQUEST["email"]."'");
         if(count($rs)>0)
         {
-            $felhasznalo=$rs[0];
+            $felhasznalo=$rs[0]; //itt még csak user adat
+
+            if($felhasznalo["usr_tipus"]=='vez') {$melyikTablabolKerunkLe="vezetoseg";}
+            elseif($felhasznalo["usr_tipus"]=='okt') {$melyikTablabolKerunkLe="oktato";}
+            elseif($felhasznalo["usr_tipus"]=='tan') {$melyikTablabolKerunkLe="tanulo";}
+            $rs=getQuery("SELECT * FROM ".$melyikTablabolKerunkLe." WHERE ".$felhasznalo["usr_tipus"]."_usr_id='".$felhasznalo["usr_id"]."'");
+            
+            $tipusadatok=$rs[0]; //itt már minden adat
+
             if($felhasznalo["usr_isk_id"]==$iskola["isk_id"])
             {
                 //Jelszó vizsgálat
-                if(password_verify($_REQUEST["jelszo"].HASH_SALT, $felhasznalo["usr_pwd"]))
+                if(password_verify($_REQUEST["jelszo"].HASH_SALT, $felhasznalo["usr_jelszo"]))
                 {
-                    $_SESSION["user"]=$felhasznalo;
                     $_SESSION["iskola"]=$iskola;
+                    $_SESSION["user"]=$felhasznalo;
+                    $_SESSION["userTipusAdatok"]=$tipusadatok;
                     $_SESSION["logd_in"]=true;
-                    header('location: //sulid.loc/priv');
+                    header('location: http://sulid.loc/priv');
                     exit();
                 }
                 else
