@@ -13,7 +13,7 @@ function dbConnect()
     mysqli_query($GLOBALS["dbConnection"],"SET NAMES UTF8");
 }
 
-function getQuery($query , $echoQuery = 0) 
+function getSQL($query , $echoQuery = 0) 
 {
 	if ($echoQuery==1)
 	{ 
@@ -46,7 +46,7 @@ function getQuery($query , $echoQuery = 0)
     return $data;	
 }
 
-function setQuery($query , $echoQuery = 0) 
+function setSQL($query , $echoQuery = 0) 
 {
     if ($echoQuery==1){ 
 		echo $query; 

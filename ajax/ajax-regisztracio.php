@@ -33,16 +33,16 @@ else
     
     //Intézmény neve
     $_REQUEST["intezmenyNeve"]=ucwords($_REQUEST["intezmenyNeve"]);
-    $rs= getQuery("SELECT * FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyNeve"]."'");
+    $rs= getSQL("SELECT * FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyNeve"]."'");
     if(count($rs)==0 || true)
     {
         //Intézmény Rövid neve
         $_REQUEST["intezmenyRovidNeve"]=strtolower($_REQUEST["intezmenyRovidNeve"]);
-        $rs= getQuery("SELECT * FROM iskola WHERE isk_rovid_nev='".$_REQUEST["intezmenyRovidNeve"]."'");
+        $rs= getSQL("SELECT * FROM iskola WHERE isk_rovid_nev='".$_REQUEST["intezmenyRovidNeve"]."'");
         if(count($rs)==0 || strlen($_REQUEST["intezmenyRovidNeve"])<16)
         {
             //Intézmény OM
-            $rs= getQuery("SELECT * FROM iskola WHERE isk_om='".$_REQUEST["intezmenyOm"]."'");
+            $rs= getSQL("SELECT * FROM iskola WHERE isk_om='".$_REQUEST["intezmenyOm"]."'");
             if(count($rs)==0)
             {
                 //Felhasználói adatok ellenőrzése
@@ -53,7 +53,7 @@ else
                 $usr_nev=$_REQUEST["vezetekNev"]." ".$_REQUEST["keresztNev"];
 
                 //Email
-                $rs= getQuery("SELECT * FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'");
+                $rs= getSQL("SELECT * FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'");
                 if(count($rs)==0)
                 {
 
@@ -61,20 +61,20 @@ else
                     if(strlen($_REQUEST["jelszo1"])>=8 && strlen($_REQUEST["jelszo1"])<=20 && preg_match('~[0-9]+~', $_REQUEST["jelszo1"]) && preg_match('/[A-Z]/', $_REQUEST["jelszo1"]) && preg_match('/[a-z]/', $_REQUEST["jelszo1"])) //Elég az egyik jelszóra mert egyezni fognak a frontend miatt, ha nem így járt
                     {
                         //intézmény beszúr
-                        $rs = setQuery("    INSERT INTO iskola (isk_nev, isk_rovid_nev , isk_om, isk_irsz, isk_varos, isk_cim)
+                        $rs = setSQL("    INSERT INTO iskola (isk_nev, isk_rovid_nev , isk_om, isk_irsz, isk_varos, isk_cim)
                                             VALUES ('".$_REQUEST["intezmenyNeve"]."','".$_REQUEST["intezmenyRovidNeve"]."', '".$_REQUEST["intezmenyOm"]."', '".$_REQUEST["intezmenyIrsz"]."', '".$_REQUEST["intezmenyVaros"]."', '".$_REQUEST["intezmenyUtca"]."');");
-                        $iskId= getQuery("SELECT isk_id FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyNeve"]."' AND isk_om='".$_REQUEST["intezmenyOm"]."'")[0]["isk_id"];
+                        $iskId= getSQL("SELECT isk_id FROM iskola WHERE isk_nev='".$_REQUEST["intezmenyNeve"]."' AND isk_om='".$_REQUEST["intezmenyOm"]."'")[0]["isk_id"];
 
                         $hash = password_hash($_REQUEST["jelszo1"].HASH_SALT, PASSWORD_DEFAULT);
 
                         //user beszúr
-                        $rs = setQuery("    INSERT INTO user (usr_isk_id, usr_nev, usr_tipus, usr_email, usr_jelszo)
+                        $rs = setSQL("    INSERT INTO user (usr_isk_id, usr_nev, usr_tipus, usr_email, usr_jelszo)
                                             VALUES ('".$iskId."', '".$usr_nev."', 'vez', '".$_REQUEST["emailCim"]."', '".$hash."');");
                         
-                        $usrId= getQuery("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["usr_id"];
+                        $usrId= getSQL("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["usr_id"];
 
                         //Vezetőségi tag beszúr
-                        $rs = setQuery("    INSERT INTO vezetoseg (vez_usr_id, vez_nev, vez_nev_vezetek, vez_nev_kereszt, vez_email)
+                        $rs = setSQL("    INSERT INTO vezetoseg (vez_usr_id, vez_nev, vez_nev_vezetek, vez_nev_kereszt, vez_email)
                                             VALUES ('".$usrId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."');");
                         
 

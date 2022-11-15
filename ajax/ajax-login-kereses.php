@@ -10,10 +10,10 @@ $retArray=array(
 if(strlen($_REQUEST["searchbar"])>=3)
 {
     //Keresünk névre
-    $rsForNev = getQuery("SELECT * FROM iskola WHERE isk_nev LIKE '%".$_REQUEST["searchbar"]."%'");
+    $rsForNev = getSQL("SELECT * FROM iskola WHERE isk_nev LIKE '%".$_REQUEST["searchbar"]."%'");
 
     //Keresünk OM kódra (OMK)
-    $rsForOMk = getQuery("SELECT * FROM iskola WHERE isk_om LIKE '%".$_REQUEST["searchbar"]."%'");
+    $rsForOMk = getSQL("SELECT * FROM iskola WHERE isk_om LIKE '%".$_REQUEST["searchbar"]."%'");
 
     $rs =array_merge($rsForNev, $rsForOMk);
     

@@ -42,7 +42,7 @@ class siteBuilder {
         //egyedi oldalak + kidolgozás alatt
         if ( $_URL["subdomain"] > '') 
         {
-            $iskola = getQuery("SELECT * FROM iskola WHERE isk_rovid_nev='".$_URL["subdomain"]."'")[0];
+            $iskola = getSQL("SELECT * FROM iskola WHERE isk_rovid_nev='".$_URL["subdomain"]."'")[0];
             if($iskola["isk_id"]>0)
             {
                 $_URL["php"]=array("pub","login","php");

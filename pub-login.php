@@ -7,7 +7,7 @@ if ($_SESSION["logd_in"]==true)
 }
 
 //iskola adatai
-$rs=getQuery("SELECT * FROM iskola WHERE isk_rovid_nev='".$_URL["subdomain"]."'");
+$rs=getSQL("SELECT * FROM iskola WHERE isk_rovid_nev='".$_URL["subdomain"]."'");
 $iskola=$rs[0];
 
 $error;
@@ -18,7 +18,7 @@ if(isset($_REQUEST["email"]))
     if($_REQUEST["email"]>'' && $_REQUEST["jelszo"]>'')
     {
         //Van ilyen user
-        $rs=getQuery("SELECT * FROM user WHERE usr_email='".$_REQUEST["email"]."'");
+        $rs=getSQL("SELECT * FROM user WHERE usr_email='".$_REQUEST["email"]."'");
         if(count($rs)>0)
         {
             $felhasznalo=$rs[0]; //itt még csak user adat
@@ -26,7 +26,7 @@ if(isset($_REQUEST["email"]))
             if($felhasznalo["usr_tipus"]=='vez') {$melyikTablabolKerunkLe="vezetoseg";}
             elseif($felhasznalo["usr_tipus"]=='okt') {$melyikTablabolKerunkLe="oktato";}
             elseif($felhasznalo["usr_tipus"]=='tan') {$melyikTablabolKerunkLe="tanulo";}
-            $rs=getQuery("SELECT * FROM ".$melyikTablabolKerunkLe." WHERE ".$felhasznalo["usr_tipus"]."_usr_id='".$felhasznalo["usr_id"]."'");
+            $rs=getSQL("SELECT * FROM ".$melyikTablabolKerunkLe." WHERE ".$felhasznalo["usr_tipus"]."_usr_id='".$felhasznalo["usr_id"]."'");
             
             $tipusadatok=$rs[0]; //itt már minden adat
 
