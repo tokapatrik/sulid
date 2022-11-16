@@ -12,6 +12,11 @@ class User {
             exit();
         }
     }
+
+    public function getUserPrefix() //Visszaadja, hogy vez, okt, tan
+	{
+        return $_SESSION["user"]["usr_tipus"];
+    }
 }
 
 ?>

@@ -33,8 +33,15 @@ $userClassPtr->userLogdIn();
 
             <div class="menubarButtonContainer mb-2">
                 <div class="menubarButtonMain" id=mainAdatlapom>
+                    <i class="fas fa-fw fa-tachometer-alt ms-4 me-3" style="float: left;"></i>
+                    <a href="/priv" >Kezdőlap</a>
+                </div>
+            </div>
+
+            <div class="menubarButtonContainer mb-2">
+                <div class="menubarButtonMain" id=mainAdatlapom>
                     <i class="fas fa-fw fa-user-alt ms-4 me-3" style="float: left;"></i>
-                    <a href="" >Adatlapom</a>
+                    <a href="/priv/adatlap" >Adatlapom</a>
                 </div>
             </div>
 
@@ -69,6 +76,18 @@ $userClassPtr->userLogdIn();
             <?
             if($_SESSION["user"]["usr_tipus"]=="okt")
             {
+                if($_SESSION["userTipusAdatok"]["okt_osztalyfonok"]>'')
+                {
+                    echo
+                    '
+                    <div class="menubarButtonContainer mb-2">
+                        <div class="menubarButtonMain" id=mainOsztalyom>
+                            <i class="fas fa-fw fa-chalkboard-teacher ms-4 me-3" style="float: left;"></i>
+                            <a href="" >Osztályom</a>
+                        </div>
+                    </div>
+                    ';
+                }
                 echo
                 '
                 <div class="menubarButtonContainer mb-2">
@@ -77,6 +96,12 @@ $userClassPtr->userLogdIn();
                         <a href="">Tantárgyaim</a>
                     </div>
                 </div>
+                <div class="menubarButtonContainer mb-2">
+                        <div class="menubarButtonMain" id=mainEnaplo>
+                            <i class="fas fa-fw fa-book-open ms-4 me-3" style="float: left;"></i>
+                            <a href="" >E-napló</a>
+                        </div>
+                    </div>
                 ';
             }
             if($_SESSION["user"]["usr_tipus"]=="vez")
@@ -139,15 +164,16 @@ $userClassPtr->userLogdIn();
                     </div>
                 ';
             }
-            if($_SESSION["user"]["usr_tipus"]=="tan" || $_SESSION["userTipusAdatok"]["okt_osztalyfonok"]>'')
+            if($_SESSION["user"]["usr_tipus"]=="tan")
             {
                 echo '
+
                     <div class="menubarButtonContainer mb-2">
                         <div class="menubarButtonMain" id=mainOsztalyom>
                             <i class="fas fa-fw fa-chalkboard-teacher ms-4 me-3" style="float: left;"></i>
                             <a href="" >Osztályom</a>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="menubarButtonContainer mb-2">
                         <div class="menubarButtonMain" id=mainEnaplo>
                             <i class="fas fa-fw fa-book-open ms-4 me-3" style="float: left;"></i>

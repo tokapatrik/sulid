@@ -65,3 +65,22 @@
     display:flex;
     align-items: center;
   }
+
+  .nameBoxLogoAdatlap{
+    float:left; 
+    min-height: 15vh;
+    min-width: 15vh;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 6vh;
+    letter-spacing: 1px;
+  }
+
+  tr td:first-child {
+    width: 1%;
+    white-space: nowrap;
+  }

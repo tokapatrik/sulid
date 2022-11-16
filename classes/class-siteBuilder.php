@@ -73,6 +73,7 @@ class siteBuilder {
             }
             else
             {
+                $_URL["website_path"]="priv_files/";
                 $_URL["php"]=array("priv",$_URL["php"],"php");
             }
         }
