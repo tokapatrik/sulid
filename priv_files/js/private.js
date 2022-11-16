@@ -50,3 +50,20 @@
       }
     }
   }
+
+  $("#editSzemelyesAdatok").on("click", function() {
+    $("#szemelyesAdatokForm").addClass("border");
+    $("#szemelyesAdatokForm").addClass("shadow");
+    $(".szemelyesAdatok").hide();
+    $(".szemelyesAdatokHidden").prop("type", "text");
+    $("#szulido").prop("type", "date");
+    $(".szemelyesButton").removeAttr("hidden");
+  });
+
+  $("#saveMegse").on("click", function() {
+    $("#szemelyesAdatokForm").removeClass("border");
+    $("#szemelyesAdatokForm").removeClass("shadow");
+    $(".szemelyesAdatokHidden").prop("type", "hidden");
+    $(".szemelyesAdatok").show();
+    $(".szemelyesButton").prop('hidden', true);
+  });

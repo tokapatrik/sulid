@@ -41,7 +41,7 @@ $userClassPtr->userLogdIn();
             <div class="menubarButtonContainer mb-2">
                 <div class="menubarButtonMain" id=mainAdatlapom>
                     <i class="fas fa-fw fa-user-alt ms-4 me-3" style="float: left;"></i>
-                    <a href="/priv/adatlap" >Adatlapom</a>
+                    <a href="/priv/adatlapom" >Adatlapom</a>
                 </div>
             </div>
 

@@ -74,8 +74,8 @@ else
                         $usrId= getSQL("SELECT usr_id FROM user WHERE usr_email='".$_REQUEST["emailCim"]."'")[0]["usr_id"];
 
                         //Vezetőségi tag beszúr
-                        $rs = setSQL("    INSERT INTO vezetoseg (vez_usr_id, vez_nev, vez_nev_vezetek, vez_nev_kereszt, vez_email)
-                                            VALUES ('".$usrId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."');");
+                        $rs = setSQL("    INSERT INTO vezetoseg (vez_usr_id, vez_isk_id, vez_nev, vez_nev_vezetek, vez_nev_kereszt, vez_email)
+                                            VALUES ('".$usrId."', '".$iskId."', '".$usr_nev."', '".$_REQUEST["vezetekNev"]."', '".$_REQUEST["keresztNev"]."', '".$_REQUEST["emailCim"]."');");
                         
 
                         $retArray["retCode"]=5;

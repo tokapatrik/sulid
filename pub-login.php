@@ -18,7 +18,7 @@ if(isset($_REQUEST["email"]))
     if($_REQUEST["email"]>'' && $_REQUEST["jelszo"]>'')
     {
         //Van ilyen user
-        $rs=getSQL("SELECT * FROM user WHERE usr_email='".$_REQUEST["email"]."'");
+        $rs=getSQL("SELECT * FROM user WHERE usr_email='".$_REQUEST["email"]."' AND usr_isk_id='".$iskola["isk_id"]."'");
         if(count($rs)>0)
         {
             $felhasznalo=$rs[0]; //itt még csak user adat
@@ -27,7 +27,6 @@ if(isset($_REQUEST["email"]))
             elseif($felhasznalo["usr_tipus"]=='okt') {$melyikTablabolKerunkLe="oktato";}
             elseif($felhasznalo["usr_tipus"]=='tan') {$melyikTablabolKerunkLe="tanulo";}
             $rs=getSQL("SELECT * FROM ".$melyikTablabolKerunkLe." WHERE ".$felhasznalo["usr_tipus"]."_usr_id='".$felhasznalo["usr_id"]."'");
-            
             $tipusadatok=$rs[0]; //itt már minden adat
 
             if($felhasznalo["usr_isk_id"]==$iskola["isk_id"])
