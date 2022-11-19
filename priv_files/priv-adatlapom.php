@@ -5,7 +5,7 @@ $misc = new Misc;
 $userClassPtr->userLogdIn();
 
 $color=$misc->stringToColorCode($_SESSION["user"]["usr_nev"]);
-$monogram=substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_vezetek"],0,1).substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_kereszt"],0,1);
+$monogram=mb_substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_vezetek"],0,1).mb_substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_kereszt"],0,1);
 
 $prefix=$userClassPtr->getUserPrefix();
 
@@ -37,20 +37,12 @@ if(count($_REQUEST)>1)
     $buildSQLWhere="WHERE ".$prefix."_id=".$_SESSION["userTipusAdatok"][$prefix."_id"];
     $buildSQL=$buildSQLUpdate.$buildSQLValue.$buildSQLWhere;
     setSQL($buildSQL);
-    $misc->updateSessionFroDB("userTipusAdatok",$melyikTabla);
-
-    //Update user tábla
-    if($_REQUEST[$prefix."_nev"]>'')
-    {
-        setSQL("UPDATE user SET usr_nev='".$_REQUEST[$prefix."_nev"]."' WHERE usr_id='".$_SESSION["userTipusAdatok"][$prefix."_usr_id"]."'");
-        $misc->updateSessionFroDB("user","user");
-        $color=$misc->stringToColorCode($_SESSION["user"]["usr_nev"]);
-    }
+    $misc->updateSessionFromDB("userTipusAdatok",$melyikTabla);
 }
 
 include('priv-site-top.php');
 ?>
-<div class="bg-light pt-3 pb-5">
+<div class=" pt-3 pb-5">
 
 
 <div class="card shadow ms-5 me-5">
@@ -70,7 +62,7 @@ include('priv-site-top.php');
 
     <div class="row" style="--bs-gutter-x:0px;">
 
-        <form method="post" class="col ms-3 ps-2 mb-5 pb-3 me-3 pe-2 pt-2" id="szemelyesAdatokForm">
+        <form method="post" class="col ms-5 ps-2 mb-5 pb-3 me-3 pe-2 pt-2" id="szemelyesAdatokForm">
             <div>
                 <h5 class="float-start">Személyes adatok:</h5>
                 <i class="fas fa-edit float-end fa-lg" id="editSzemelyesAdatok"></i>

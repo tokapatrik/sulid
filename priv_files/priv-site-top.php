@@ -27,7 +27,7 @@ $userClassPtr->userLogdIn();
     <div class="row p-0 m-0 h-100">
         <div class="col-2 m-0 p-0 position-relative menubar" style="background: #282f3d;">
             <div class="nameBox m-3 pb-3">
-                <?echo '<div class="nameBoxLogo m-0 p-0" style="background: #'.$misc->stringToColorCode($_SESSION["user"]["usr_nev"]).';">'.substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_vezetek"],0,1).substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_kereszt"],0,1).'</div>';?>
+                <?echo '<div class="nameBoxLogo m-0 p-0" style="background: #'.$misc->stringToColorCode($_SESSION["user"]["usr_nev"]).';">'.mb_substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_vezetek"],0,1).mb_substr($_SESSION["userTipusAdatok"][$_SESSION["user"]["usr_tipus"]."_nev_kereszt"],0,1).'</div>';?>
                 <?echo '<div class="ms-2">'.$_SESSION["user"]["usr_nev"].'</div>'?>
             </div>
 
@@ -48,12 +48,12 @@ $userClassPtr->userLogdIn();
             <div class="menubarButtonContainer mb-2">
                 <div class="menubarButtonMain" id=mainIskola>
                     <i class="fas fa-fw fa-school ms-4 me-3"></i>
-                    <a >Iskola</a>
+                    <a style="cursor:pointer;">Iskola</a>
                 </div>
                 <div class="menubarButtonSubContainer" id="subIskola">
                     <div class="menubarButtonSub">
                         <i class="fas fa-fw fa-clipboard ms-4 me-3"></i>
-                        <a href="" >Adatlap</a>
+                        <a href="/priv/iskola-adatlap" >Adatlap</a>
                     </div>
                     <?
                     if($_SESSION["user"]["usr_tipus"]=="vez") //Vezetőségi tag jog
@@ -62,7 +62,7 @@ $userClassPtr->userLogdIn();
                         '
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-chalkboard-teacher  ms-4 me-3"></i>
-                                <a href="" >Osztályok</a>
+                                <a href="/priv/osztalyok" >Osztályok</a>
                             </div>
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-book ms-4 me-3"></i>
@@ -109,18 +109,18 @@ $userClassPtr->userLogdIn();
                 echo
                 '
                     <div class="menubarButtonContainer mb-2">
-                        <div class="menubarButtonMain" id=mainTanarok>
-                            <i class="fas fa-fw fa-chalkboard-teacher ms-4 me-3" style="float: left;"></i>
-                            <a >Tanárok</a>
+                        <div class="menubarButtonMain" id=mainTanulok>
+                            <i class="fas fa-fw fa-graduation-cap ms-4 me-3" style="float: left;"></i>
+                            <a style="cursor:pointer;">Tanulók</a>
                         </div>
-                        <div class="menubarButtonSubContainer" id="subTanarok">
+                        <div class="menubarButtonSubContainer" id="subTanulok">
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-list  ms-4 me-3"></i>
-                                <a href="" >Tanárok listája</a>
+                                <a href="/priv/tanulo-lista" >Tanulók listája</a>
                             </div>
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-plus  ms-4 me-3"></i>
-                                <a href="" >Tanárok rögzítése</a>
+                                <a href="/priv/tanulo-rogzites" >Tanuló rögzítése</a>
                             </div>
                         </div>
                     </div>
@@ -128,18 +128,18 @@ $userClassPtr->userLogdIn();
                 echo
                 '
                     <div class="menubarButtonContainer mb-2">
-                        <div class="menubarButtonMain" id=mainTanulok>
-                            <i class="fas fa-fw fa-graduation-cap ms-4 me-3" style="float: left;"></i>
-                            <a >Tanulók</a>
+                        <div class="menubarButtonMain" id=mainTanarok>
+                            <i class="fas fa-fw fa-chalkboard-teacher ms-4 me-3" style="float: left;"></i>
+                            <a style="cursor:pointer;">Tanárok</a>
                         </div>
-                        <div class="menubarButtonSubContainer" id="subTanulok">
+                        <div class="menubarButtonSubContainer" id="subTanarok">
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-list  ms-4 me-3"></i>
-                                <a href="" >Tanulók listája</a>
+                                <a href="/priv/tanar-lista" >Tanárok listája</a>
                             </div>
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-plus  ms-4 me-3"></i>
-                                <a href="" >Tanuló rögzítése</a>
+                                <a href="/priv/tanar-rogzites" >Tanárok rögzítése</a>
                             </div>
                         </div>
                     </div>
@@ -149,16 +149,16 @@ $userClassPtr->userLogdIn();
                     <div class="menubarButtonContainer mb-2">
                         <div class="menubarButtonMain" id=mainVaezetoseg>
                             <i class="fas fa-fw fa-street-view ms-4 me-3" style="float: left;"></i>
-                            <a >Vezetőségi tagok</a>
+                            <a style="cursor:pointer;">Vezetőségi tagok</a>
                         </div>
                         <div class="menubarButtonSubContainer" id="subVaezetoseg">
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-list  ms-4 me-3"></i>
-                                <a href="" >Vezetőségi tagok listája</a>
+                                <a href="/priv/vezeto-lista" >Vezetőségi tagok listája</a>
                             </div>
                             <div class="menubarButtonSub">
                                 <i class="fas fa-fw fa-plus  ms-4 me-3"></i>
-                                <a href="" >Vezetőségi tagok rögzítése</a>
+                                <a href="/priv/vezeto-rogzites" >Vezetőségi tagok rögzítése</a>
                             </div>
                         </div>
                     </div>
@@ -202,8 +202,9 @@ $userClassPtr->userLogdIn();
                 </div>
             </div>
         </div>
-        <div class="col-10 m-0 p-0" style="">
+        <div class="col-10 m-0 p-0 ">
             <div class="privSiteTop border" style="height:40px;">
                 <img class="ms-2 me-3" style="float:left; height:100%;" src="/images/siteImages/fullLogo.png" alt="Suild.hu">
                 <?echo '<div>'.$_SESSION["iskola"]["isk_nev"].'</div>';?>
             </div>
+            <div  style="height: calc(100vh - 40px);overflow-y: auto;" id="oldalOverflow">

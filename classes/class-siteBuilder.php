@@ -22,7 +22,7 @@ class siteBuilder {
         }else{
             if(strrpos($_GET["file"],'/')!=false){
                 //tehát almappa kell pl: priv
-                $_URL["php"]=substr($_GET["file"], strrpos($_GET["file"],'/')+1, strlen($_GET["file"])-strrpos($_GET["file"],'/')-1);
+                $_URL["php"]=mb_substr($_GET["file"], strrpos($_GET["file"],'/')+1, strlen($_GET["file"])-strrpos($_GET["file"],'/')-1);
                 $_URL["website_path"]=str_replace($_URL["php"],'',$_GET["file"]);
 
                 //$_URL["php"]=str_replace('-','.',$_URL["php"]);

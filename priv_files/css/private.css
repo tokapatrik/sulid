@@ -84,3 +84,23 @@
     width: 1%;
     white-space: nowrap;
   }
+
+  .listaChecked{
+    background-color: #1271ff76;
+  }
+
+  .listClose{
+    color: #6c757d;
+  }
+  .listClose:hover{
+    color: #0d6efd;
+  }
+
+  .tovabbiAdatok{
+    cursor: pointer;
+    color: #0d6efd;;
+  }
+  .tovabbiAdatok:hover{
+    color:#0a58ca;
+  }
+  
