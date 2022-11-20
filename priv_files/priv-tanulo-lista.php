@@ -7,18 +7,18 @@ if($_SESSION["user"]["usr_tipus"]=='vez')
     if($_REQUEST["kereses"]>'')
     {
         //Nevre
-        $rsForName=getSQL("SELECT * FROM tanulo WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_nev LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
+        $rsForName=getSQL("SELECT * FROM tanulo LEFT JOIN osztaly on tan_oszt_id=oszt_id WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_nev LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
     
         //OM azonosítóra
-        $rsForOM=getSQL("SELECT * FROM tanulo WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_om LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
+        $rsForOM=getSQL("SELECT * FROM tanulo LEFT JOIN osztaly on tan_oszt_id=oszt_id WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_om LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
 
         //Email
-        $rsForEmail=getSQL("SELECT * FROM tanulo WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_email LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
+        $rsForEmail=getSQL("SELECT * FROM tanulo LEFT JOIN osztaly on tan_oszt_id=oszt_id WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' AND tan_email LIKE '%".$_REQUEST["kereses"]."%' ORDER BY tan_id DESC");
         $tanulokArray=array_unique(array_merge($rsForName, $rsForOM, $rsForEmail), SORT_REGULAR);
 
     }else
     {
-        $rs = getSQL("SELECT * FROM tanulo WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' ORDER BY tan_id DESC");
+        $rs = getSQL("SELECT * FROM tanulo LEFT JOIN osztaly on tan_oszt_id=oszt_id WHERE tan_isk_id='".$_SESSION["iskola"]["isk_id"]."' ORDER BY tan_id DESC");
         $tanulokArray=$rs;
     }
 }
@@ -57,6 +57,12 @@ include('priv-site-top.php');
                 <div class="d-flex align-items-center">
                     <input class="form-check-input mt-3 mb-3 ms-2 me-2" id="listaCheckboxAll" <?if($misc->getNumberOfSelectedUser("tan")==count($tanulokArray)) {echo "checked";}?> type="checkbox">
                     <div class="fw-bold" id="listaSelectCounter"></div>
+                    <?
+                    if ($_GET["pageFrom"]=="osztalyok")
+                    {
+                        echo '<a class="ms-3 btn btn-primary" href="/priv/'.$_GET["pageFrom"].'" >Vissza az osztályokhoz </a>';
+                    }
+                    ?>
                 </div>
             </div>
                 <?
@@ -69,7 +75,7 @@ include('priv-site-top.php');
                         echo '<td><input class="form-check-input listaCheckbox" type="checkbox" id="tan_checkbox_'.$tanulo["tan_id"].'" '.(($_SESSION["kijeloltek"]['tan_checkbox_'.$tanulo["tan_id"]]=="true")? "checked" : "").'></td>';
                         echo '<th><div class="d-flex align-items-center justify-content-center float-start me-2" style="height:30px;width:30px;background: #'.$color.';border-radius: 5px;">'.$monogram.'</div><div class="d-flex align-items-center" style="height:30px;"">'.$tanulo["tan_nev"].'</div></th>';
                         echo '<td>'.$tanulo["tan_om"].'</td>';
-                        echo '<td>'.(($tanulo["tan_osztaly"]!='')? $tanulo["tan_osztaly"] : "nincs osztály").'</td>';
+                        echo '<td>'.(($tanulo["tan_oszt_id"]!='')? $tanulo["oszt_nev"] : "nincs osztály").'</td>';
                         echo '<td>'.$tanulo["tan_email"].'</td>';
                         echo '<td>'.(($tanulo["tan_atlag"]!='')? $tanulo["tan_atlag"] : "---").'</td>';
                         echo '</tr>';

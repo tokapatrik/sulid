@@ -52,6 +52,12 @@ if($_SESSION["user"]["usr_tipus"]=='vez')
                 <div class="d-flex align-items-center">
                     <input class="form-check-input mt-3 mb-3 ms-2 me-2" id="listaCheckboxAll" <?if($misc->getNumberOfSelectedUser("okt")==count($oktatoArray)) {echo "checked";}?> type="checkbox">
                     <div class="fw-bold" id="listaSelectCounter"></div>
+                    <?
+                    if ($_GET["pageFrom"]=="osztalyok")
+                    {
+                        echo '<a class="ms-3 btn btn-primary" href="/priv/'.$_GET["pageFrom"].'" >Vissza az osztályokhoz </a>';
+                    }
+                    ?>
                 </div>
             </div>
                 <?

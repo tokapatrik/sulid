@@ -67,7 +67,7 @@ if (count($_REQUEST)>1) { //POST vizsgálat
                 <button type="submit" class="btn btn-success float-end position-absolute" style="z-index: 10;bottom: 1.25rem; right: 1.25rem;">Tanár rögzítése</button>
 
                 <div id="tovabbiAdatokDiv" style="display:none;">
-                <h5 class="mt-3" >Személyes adatok:</h5>
+                    <h5 class="mt-3" >Személyes adatok:</h5>
                 <div class="ms-3">
 
                     <label class="mb-2" style="font-weight: 500;">Anyja neve:</label>

@@ -27,7 +27,7 @@ include('priv-site-top.php');
 <div class="pt-3 pb-3 ps-4 pe-4">
     <div class="card">
         <div class="card-header d-flex align-items-center">
-            <i class="fas fa-graduation-cap fa-1x"></i>
+            <i class="fas fa-street-view fa-1x"></i>
             <h5 class="m-0 ms-2">Vezetőségi tagok listája - <?echo count($rs)?> tag</h5>
         </div>
         <form method="post" class="card-body d-flex align-items-center w-50">

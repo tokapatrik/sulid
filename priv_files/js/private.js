@@ -190,10 +190,55 @@ function saveKijeltekToSession(element, value)
 }
 
 $(document).ready(function() {
-  console.log("asd");
   $("#oldalOverflow").scrollTop();
+  if($('.canOpen').length>0)
+  {
+    $(".editOsztaly").hide();
+  }
+  $(".canOpen").parent().parent().children().each(function(i, obj) {
+    $(this).children(".osztalyokShow").hide();
+    $(this).children(".osztalyokHidden").show();
+    $(this).children(".osztalyButtons").show();
+  });
 });
 
 $("#tovabbiAdatok").on("click", function() {
   $('#tovabbiAdatokDiv').slideToggle(400);
 });
+
+
+
+
+
+
+$(".editOsztaly").on("click", function() {
+  $(".editOsztaly").hide();
+  $(this).parent().parent().children().each(function(i, obj) {
+    $(this).children(".osztalyokShow").hide();
+    $(this).children(".osztalyokHidden").show();
+    $(this).children(".osztalyButtons").show();
+  });
+  saveNyitottakToSession($(this).parent().parent().children("td").children(".osztalyButtons").attr("value"), "true");
+});
+
+$(".osztlyButtonsMegsem").on("click", function() {
+  $(".osztalyButtons").hide();
+  $(".editOsztaly").show();
+  $(this).parent().parent().parent().parent().children().each(function(i, obj) {
+    $(this).children(".osztalyokShow").show();
+    $(this).children(".osztalyokHidden").hide();
+  });
+  saveNyitottakToSession($(this).parent().parent().parent().parent().children("td").children(".osztalyButtons").attr("value"),false);
+});
+
+function saveNyitottakToSession(nyitottSorOsztId, value)
+{
+  $.ajax({
+    url: '/../priv_files/ajax/ajax-nyitva-session.php',
+    data: {"nyitottSorOsztId":nyitottSorOsztId,"value":value},
+    type: 'post',
+    success:function(asd){
+      console.log(asd);
+    }
+ });
+}

@@ -19,7 +19,7 @@ class Misc{
 
   function getNumberOfSelectedUser($userType) //Várja, hogy melyik típusú kijelölt usereket számolja össze. Lehetősgek: tan/okt/vez
   {
-    $numberOfSelectedUser;
+    $numberOfSelectedUser=0;
     if (is_array($_SESSION["kijeloltek"])) {
       $keys=array_keys($_SESSION["kijeloltek"]);
       for ($i=0; $i < count($keys); $i++) { 

@@ -103,4 +103,12 @@
   .tovabbiAdatok:hover{
     color:#0a58ca;
   }
+
+  .osztalyokHidden{
+    display:none;
+  }
+
+  .osztalyButtons{
+    display:none;
+  }
   
