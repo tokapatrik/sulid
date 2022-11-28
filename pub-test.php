@@ -1,7 +1,6 @@
 <?
 include_once('include.php'); 
 
-
 var_dump($_SESSION);
 die();
 

@@ -92,7 +92,7 @@ if($_SESSION["user"]["usr_tipus"]=='vez')
                 <th scope="col">Osztályfőnök</th>
                 <th scope="col">Tanulók</th>
                 <th scope="col" style="max-width:65px;">Osztályátlag</th>
-                <th scope="col">Tanulók</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
